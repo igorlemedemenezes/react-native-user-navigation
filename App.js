@@ -32,38 +32,5 @@ export default function App() {
     setNomeUsuario(nome);
     setTelefoneUsuario(telefone);
   }
-
-  const editarTelaUsuario = () => {
-    setTelaUsuario(true);
-    setTelaInicial(false);
-  }
-
-  const editarTelaInicio = () => {
-    setTelaInicial(true);
-    setTelaUsuario(false);
-  }
-
-  let conteudo;
-  
-
-  if(telaInicial === true){
-    conteudo = <TelaCadastro 
-              onSelecionaUsuarioId={selecionaUsuarioId}
-              onSelecionaUsuarioNome={selecionaUsuarioNome}  
-              onSelecionaUsuarioTelefone={selecionaUsuarioTelefone}
-              onEditarTelaUsuario={editarTelaUsuario}
-            />
-  }
-  
-  if(telaUsuario === true){
-    conteudo = <TelaUsuario 
-                  id={idUsuario} 
-                  nome={nomeUsuario} 
-                  telefone={telefoneUsuario}
-                  onEditarTelaInicio={editarTelaInicio}
-                  onEditarUsuario={editarUsuario}
-                />
-  }
- */
-
+*/
 }

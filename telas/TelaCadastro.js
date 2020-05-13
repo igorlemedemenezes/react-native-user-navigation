@@ -55,15 +55,7 @@ const TelaCadastro = (props) => {
 
 TelaCadastro.navigationOptions = dadosNav => {
     return {
-        headerTitle: "Cadastro Usuario",
-        headerRight:
-            <HeaderButtons
-                HeaderButtonComponent={BotaoCabecalho}>
-                    <Item 
-                        iconName={Platform.OS === 'android' ? 'md-add' : 'ios-add'}             
-                        onPress={() => dadosNav.navigation.navigate("DetalheDoUsuario")}
-                    />
-            </HeaderButtons>
+        headerTitle: "Cadastro Usuario"
     }
 }
 
