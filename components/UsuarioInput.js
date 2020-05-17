@@ -1,17 +1,28 @@
 import React, {useState} from 'react';
 import {View, TextInput, Button, StyleSheet} from 'react-native';
+import { useDispatch } from 'react-redux';
+import * as usuariosActions from '../store/usuarios-actions'
+import TiraFoto from './TiraFoto';
 
 const UsuarioInput = (props) => {
+  
+const dispatch = useDispatch();
+
     const [nome, setNome] = useState('');
-
     const [telefone, setTelefone] = useState('');
+    const [imagemURI, setImagemURI] = useState();
 
-    const capturarNome = (nome) => {
-        setNome(nome);
+    const capturarNome = (nome) => {setNome(nome);}
+
+    const capturarTelefone = (telefone) => {setTelefone(telefone);}
+
+    const fotoTirada = imagemURI => {
+      setImagemURI(imagemURI);
     }
 
-    const capturarTelefone = (telefone) => {
-        setTelefone(telefone);
+    const adicionarUsuarioInput = () => {
+      console.log("Nome: " + nome + " " + "\nTelefone: " + telefone);
+      dispatch(usuariosActions.addUsuario(nome,telefone, imagemURI));
     }
 
     return (
@@ -28,9 +39,10 @@ const UsuarioInput = (props) => {
       onChangeText={capturarTelefone}
       value={telefone}
     />
+    <TiraFoto onFotoTirada={fotoTirada} />
     <Button 
       title="+"
-      onPress={() => {props.onAdicionarUsuario(nome, telefone)}}
+      onPress={adicionarUsuarioInput}
     />
     </View>
     );
