@@ -1,34 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet, FlatList, Keyboard, Platform} from 'react-native';
 import UsuarioInput from '../components/UsuarioInput';
 import UsuarioItem from '../components/UsuarioItem';
-import { useDispatch } from 'react-redux';
 import * as usuariosActions from '../store/usuarios-actions'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 const TelaCadastro = (props) => {
 
-
-    /* const [usuarios, setUsuarios] = useState([]);
-    const [contadorUsuarios, setContadorUsuarios] = useState(1);  */
-
-    /*  const removerLembrete = (keyASerRemovida) => {
-        setUsuarios(usuarios =>{
-          return usuarios.filter(nome => nome.key !== keyASerRemovida);
-        })
-    }  */
-
-
-     /* const adicionarNome = (nome,telefone) => {
-        setUsuarios (usuarios => {
-          console.log (usuarios);
-          setContadorUsuarios(contadorUsuarios + 1);
-          return [{key: contadorUsuarios, vNome: nome, vTelefone: telefone}, ...usuarios];
-     });
-     Keyboard.dismiss();
-    }   */
-
     const usuarios = useSelector(estado => estado.usuarios.usuarios);
+    const dispatch = useDispatch();
+
+    useEffect( () => {
+        dispatch(usuariosActions.buscarUsuario())
+    }, [dispatch]);
 
     return (
         <View style={estilos.tela}>
