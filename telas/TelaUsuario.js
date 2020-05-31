@@ -29,8 +29,8 @@ const TelaUsuario = (props) => {
         props.onEditarTelaInicio();
     }
     
-    console.log("URI : " + props.navigation.state.params.imagem)
-
+//    console.log("URI : " + props.navigation.state.params.imagem)
+    console.log(props.navigation.state.params.latitude.latitude)
     
     return (
         <View styles={estilos.telaView}>
@@ -38,36 +38,13 @@ const TelaUsuario = (props) => {
                 <Cartao estilos={estilos.telaView}>
                     <Text style={estilos.txtForm}>Nome: {props.navigation.state.params.nome}</Text>
                     <Text style={estilos.txtForm}>Telefone: {props.navigation.state.params.telefone}</Text>
+                    <Text style={estilos.txtForm}>Latitude: {props.navigation.state.params.latitude.latitude}</Text>
+                    <Text style={estilos.txtForm}>Longitude: {props.navigation.state.params.latitude.longitude}</Text>
                     <Image 
                         style={estilos.imagem}
                         source={{uri : props.navigation.state.params.imagem}}
                     />
                     </Cartao>
-                {/* <TextInput 
-                    placeholder="Nome..."
-                    style={estilos.form}
-                    onChangeText={capturarNome}
-                    value={nome}
-                />
-                <TextInput 
-                    placeholder="Telefone..."
-                    style={estilos.form}
-                    onChangeText={capturarTelefone}
-                    value={telefone}
-                />
-                <Button 
-                    style={estilos.botoes}
-                    title="Editar"
-                    onPress={
-                        editar
-
-                    }
-                />
-                <Button 
-                    style={estilos.botoes}
-                    title="Voltar"
-                    onPress={editarTelaInicio}
-                /> */}
         </View>
       );
 }
@@ -102,7 +79,7 @@ const estilos = StyleSheet.create({
     },
     imagem: {
         width: '100%',
-        height: '70%'
+        height: '50%'
     }
 });
 

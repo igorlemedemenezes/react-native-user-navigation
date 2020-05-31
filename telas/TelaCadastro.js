@@ -25,8 +25,16 @@ const TelaCadastro = (props) => {
                 <UsuarioItem
                     nome={usuario.item.nome}
                     telefone={usuario.item.telefone}
+                    
                     onSelect={
-                        () => {props.navigation.navigate("DetalheDoUsuario", {nome: usuario.item.nome, telefone: usuario.item.telefone, imagem: usuario.item.imagemURI})}
+                        () => {props.navigation.navigate("DetalheDoUsuario", 
+                            {
+                                nome: usuario.item.nome, 
+                                telefone: usuario.item.telefone,
+                                imagem: usuario.item.imagemURI,
+                                latitude: usuario.item.latitude,
+                                longitude: usuario.item.longitude
+                            })}
                     }
                     imagem={null}
                 />
@@ -45,7 +53,7 @@ TelaCadastro.navigationOptions = dadosNav => {
 
 const estilos = StyleSheet.create({
     tela: {
-        padding: 25
+        padding: 25,
     }
 })
 
